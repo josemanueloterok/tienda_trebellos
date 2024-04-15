@@ -35,6 +35,7 @@ if ($id == '' || $token == '') {
             }
 
             $imagenes = array();
+            if(file_exists($dir_images)){
             $dir = dir($dir_images);
 
             while (($archivo = $dir->read()) != false) {
@@ -44,6 +45,7 @@ if ($id == '' || $token == '') {
             }
             $dir->close();
         }
+    }
     } else {
         echo 'Error al procesar la peticion';
         exit;
@@ -85,7 +87,9 @@ if ($id == '' || $token == '') {
                             <a href="#" class="nav-link">Contacto</a>
                         </li>
                     </ul>
-                    <a href="carrito.php" class="btn btn-primary">Carrito</a>
+                    <a href="carrito.php" class="btn btn-primary">
+                        Carrito <span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -129,7 +133,8 @@ if ($id == '' || $token == '') {
 
                     <div class="d-grid gap-3 col-10 mx-auto">
                         <button class="btn btn-primary" type="button">Comprar ahora</button>
-                        <button class="btn btn-outline-primary" type="button">Agregar al carrito</button>
+                        <button class="btn btn-outline-primary" type="button" onclick="addProducto(<?php echo
+                        $id; ?>, '<?php echo $token_tmp; ?>')">Agregar al carrito</button>
 
                     </div>
                 </div>
@@ -139,6 +144,26 @@ if ($id == '' || $token == '') {
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+    <script>
+       function addProducto(id, token){
+            let url = 'clases/carrito.php'
+            let formData = new FormData()
+            formData.append('id', id)
+            formData.append('token', token)
+
+            fetch(url, {
+                method: 'POST',
+                body: formData,
+                mode: 'cors'
+            }).then(response => response.json())
+            .then(data =>{
+                if(data.ok){
+                    let elemento = document.getElementById("num_cart")
+                    elemento.innerHTML = data.numero
+                }
+            })
+       }
+    </script>
 
 </body>
 
