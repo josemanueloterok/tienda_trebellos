@@ -11,7 +11,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 //session_destroy();
 
-print_r($_SESSION);
+//print_r($_SESSION);
 
 ?>
 
@@ -48,7 +48,7 @@ print_r($_SESSION);
                             <a href="#" class="nav-link">Contacto</a>
                         </li>
                     </ul>
-                    <a href="carrito.php" class="btn btn-primary">
+                    <a href="checkout.php" class="btn btn-primary">
                         Carrito <span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span>
                     </a>
                 </div>
