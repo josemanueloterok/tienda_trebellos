@@ -1,5 +1,7 @@
 <?php
 
+define('CLIENT_ID', "ActmxmWUa0gmkARYAEtpFxFlBKGGznqRt_Liq4WeZP9Zm987WzJxcAoZB_o6GhByLohzcOEshohsVesP");
+define('CURRENCY', "EUR");
 define('KEY_TOKEN', "BNDFjssj123*");
 define("MONEDA", "€");
 
