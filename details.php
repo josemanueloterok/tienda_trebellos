@@ -72,7 +72,7 @@ if ($id == '' || $token == '') {
     <header>
         <div class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a href="#" class="navbar-brand">
+                <a href="index.php" class="navbar-brand">
                     <strong>Trebellos</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,10 +81,10 @@ if ($id == '' || $token == '') {
                 <div class="collapse navbar-collapse" id="navbarHeader">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">Catálogo</a>
+                            <a href="index.php" class="nav-link active">Catálogo</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Contacto</a>
+                            <a href="contacto.php" class="nav-link">Contacto</a>
                         </li>
                     </ul>
                     <a href="checkout.php" class="btn btn-primary">
@@ -101,7 +101,7 @@ if ($id == '' || $token == '') {
                 <div class="col-md-6 order-md-1">
 
 
-                    <div id="carouselImages" class="carousel slide">
+                    <div id="carouselImages" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="<?php echo $rutaImg; ?>" class="d-block w-100">
@@ -132,8 +132,7 @@ if ($id == '' || $token == '') {
                     </p>
 
                     <div class="d-grid gap-3 col-10 mx-auto">
-                        <button class="btn btn-primary" type="button">Comprar ahora</button>
-                        <button class="btn btn-outline-primary" type="button" onclick="addProducto(<?php echo
+                        <button class="btn btn-primary" type="button" onclick="addProducto(<?php echo
                         $id; ?>, '<?php echo $token_tmp; ?>')">Agregar al carrito</button>
 
                     </div>
